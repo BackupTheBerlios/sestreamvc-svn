@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<NSconfig>
+  <database>
+    <postgresql>
+      <persistent type="boolean">false</persistent>
+      <host>sqlnix.dragonbsd.local</host>
+      <port>5432</port>
+      <database></database>
+      <user></user>
+      <password></password>
+    </postgresql>
+    <core>
+      <using>postgresql</using>
+      <strict type="boolean">false</strict>
+    </core>
+  </database>
+  <systemKey>wkekslia</systemKey>
+  <passwordRegex>/.*{6}/<passwordRegex>
+  <user>
+    <model name="usermodel" xmlFile="userdata.xml">
+      <param name="userid">CUSER::userid</param>
+    </model>
+    <name>username</name>
+    <email>email</email>
+  </user>
+  <getConfig>
+    <useStrict type="boolean">true</useStrict>
+  </getConfig>
+  <formConfig>
+    <useStrict type="boolean">true</useStrict>
+  </formConfig>
+  <session>
+    <domain></domain>
+    <path>/</path>
+    <cookname>Syscook</cookname>
+    <secureOnly type="boolean">false</secureOnly>
+    <defaultUserId>1</defaultUserId>
+    <checkIP type="boolean">true</checkIP>
+    <sessionPath>cache</sessionPath>
+    <sessionValid>48</sessionValid>
+  </session>
+  <cache>
+    <useCache type="boolean">true</useCache>
+    <cachePath>cache</cachePath>
+    <useStrict type="boolean">true</useStrict>
+  </cache>
+  <access>
+    <model name="access" xmlFile="accessdata.xml">
+      <param name="userid">USER->getUserId</param>
+    </model>
+    <zoneField>zone</zoneField>
+    <allowField>allow</allowField>
+    <allowValue>1</allowValue>
+    <userField>userid</userField>
+    <groupField>groupid</groupField>
+  </access>
+  <modelConfig>
+    <maximalPriority>10</maximalPriority>
+  </modelConfig>
+  <pageUrl>
+    <pageIdGet valid="string" filter="strip;decoderawurl">page</pageIdGet>
+    <pageIndex>index.php</pageIndex>
+    <pageStart>haubtseite</pageStart>
+  </pageUrl>
+  <authentification>
+    <core>
+      <useForAuth>database</useForAuth>
+      <enableAuth type="boolean">true</enableAuth>
+    </core>
+    <database>
+      <model name="authentification" xmlFile="authdb.xml">
+        <param name="username">TMP::ath_username</param>
+        <param name="password">TMP::ath_password</param>
+      </model>
+      <userIDField>IDUser</userIDField>
+    </database>
+  </authentification>
+  <pluginconfig>
+    <maximalPriority>10</maximalPriority>
+  </pluginconfig>
+  <viewconfig>
+    <cache type="boolean">true</cache>
+    <templateSystem>smarty</templateSystem>
+    <templateDir>view</templateDir>
+    <cacheDir>cache</cacheDir>
+  </viewconfig>
+</NSconfig>
