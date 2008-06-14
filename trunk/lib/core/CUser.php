@@ -1,7 +1,6 @@
 <?
 /*-
  * Copyright (c) 2008 Pascal Vizeli <pvizeli@yahoo.de>
- * Copyright (c) 2008 Serge Ramseier
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -119,10 +118,10 @@ class CUser {
     return $this->m_userId;
   }
 
-  public  function getUserData($key)
+  public  function getUserData($field)
   {
-    $key   = strtolower($key);
-    return $this->m_dataSet->getValue($key);
+    $field   = strtolower($field);
+    return $this->m_dataSet->getValue($field);
   }
 
   public  function isLogin()
